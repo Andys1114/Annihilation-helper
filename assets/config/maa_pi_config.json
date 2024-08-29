@@ -1,0 +1,14 @@
+{
+    "controller": {
+        "name": "桌面端",
+        "type": "Win32"
+    },
+    "win32": {},
+    "resource": "官服",
+    "task": [
+        {
+            "name": "普通任务",
+            "option": []
+        }
+    ]
+}

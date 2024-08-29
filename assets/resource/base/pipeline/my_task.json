@@ -1,5 +1,220 @@
 {
-    "MyTask1": {},
-    "MyTask2": {},
-    "MyTask3": {}
+    "start_game1":{
+        "recognition": "TemplateMatch",
+        "template": "GameStart.png",
+        "action": "Click",
+        "next":[
+            "start_game2"
+        ]
+    },
+    "start_game2":{
+        "recognition": "OCR",
+        "expected": "开始唤醒",
+        "action": "Click",
+        "post_delay": 500,
+        "next":[
+            "start_game3"]
+     },
+    "start_game3":{
+        "recognition": "TemplateMatch",
+        "template": "CloseAnno.png",
+        "action": "Click",
+        "next":[
+            "start_game4"
+        ]
+    },
+    "start_game4":{
+        "recognition": "TemplateMatch",
+        "template": "CloseAnno.png",
+        "action": "Click",
+        "next":[
+            "into_ann1"
+        ]
+    },
+    "into_ann1":{
+        "recognition": "TemplateMatch",
+        "template": "TerminalDark.png",
+        "action": "Click",
+        "next":[
+            "into_ann2"
+        ]
+    },
+    "into_ann2":{
+        "recognition": "FeatureMatch",
+        "template": "Ann_Entry.png", 
+        "roi": [
+            819,558,196,156
+        ],
+        "action": "Click",
+        "next":[
+            "into_ann3"
+        ]
+    },
+    "into_ann3":{
+        "recognition": "FeatureMatch",
+        "template": "Ann_Battle.png",
+        "action": "Click",
+        "next":[
+            "into_ann4"
+        ]
+    },
+    "into_ann4":{
+        "action": "Swipe",
+        "begin": [
+            1125,102,0,0
+        ],
+        "end":[
+            55,548,0,0
+        ],
+        "next":[
+            "into_ann5"
+        ]
+    },
+    "into_ann5":{
+        "recognition": "FeatureMatch",
+        "template": "Longmen.png",
+        "action": "Click",
+        "next":[
+            "into_ann6"
+        ]
+    },
+    "into_ann6":{
+        "recognition": "FeatureMatch",
+        "template": "LongmenShiqu2.png",
+        "action": "Click",
+        "next":[
+            "start_ann"
+        ]
+    },
+    "start_ann":{
+        "next":[
+            "start_ann_noDaiLi",
+            "start_ann_noQuanQuan",
+            "start_ann_fight_already"
+        ]
+    },
+    "start_ann_noDaiLi":{
+        "recognition": "TemplateMatch",
+        "template": "UsePrts.png",
+        "action": "Click",
+        "next":[
+            "start_ann_noQuanQuan"
+        ]
+    },
+    "start_ann_noQuanQuan":{
+        "recognition": "TemplateMatch",
+        "template": "UsePrts-Annihilation_Button.png",
+        "action": "Click",
+        "next":[
+            "start_ann_fight"
+        ]
+    },
+    "start_ann_fight_already":{
+        "recognition":"TemplateMatch",
+        "template": "UsePrts-Ann-already.png",
+        "next":[
+            "start_ann_fight"
+        ]
+    },
+    "start_ann_fight":{
+        "recognition": "TemplateMatch",
+        "template": "Start_Fight.png",
+        "action": "Click",
+        "next": [
+            "start_ann_fight_check"
+        ]
+    },
+    "start_ann_fight_check":{
+        "next":[
+            "start_ann_fight_DaiLi1",
+            "start_ann_fight_noDaiLi2"
+
+        ]
+    },
+    "start_ann_fight_DaiLi1":{
+        "recognition": "TemplateMatch",
+        "template": "Have_Oldcard1.png",
+        "next":[
+            "start_ann_fight_DaiLi2"
+        ]
+    },
+    "start_ann_fight_DaiLi2":{
+        "recognition": "TemplateMatch",
+        "template": "Confirm_Use.png",
+        "action": "Click",
+        "next":[
+            "start_ann_fight_DaiLi3"
+        ]
+    },
+    "start_ann_fight_DaiLi3":{
+        "recognition":"DirectHit",
+        "action":"Click",
+        "post_delay":3000,
+        "next":[
+            "start_ann_fight_DaiLi_finish"
+        ]
+    },
+    "start_ann_fight_DaiLi_finish":{
+        "recognition":"TemplateMatch",
+        "template": "Battle_Finish.png",
+        "action":"Click",
+        "next":[
+            "start_ann"
+        ]
+    },
+
+    "start_ann_fight_noDaiLi1":{
+        "recognition": "FeatureMatch",
+        "template": "Have_Oldcard.png",
+        "next":[
+            "start_ann_fight_noDaiLi2"
+        ]
+    },
+    "start_ann_fight_noDaiLi2":{
+        "recognition": "TemplateMatch",
+        "template": "Cancel_Button.png",
+        "action": "Click",
+        "next":[
+            "start_ann_fight_noDaiLi3"
+        ]
+    },
+    "start_ann_fight_noDaiLi3":{
+        "recognition": "FeatureMatch",
+        "template": "UsePrts-Ann-Button.png",
+        "action": "Click",
+        "next":[
+            "start_ann_fight_noDaiLi4"
+        ]
+    },
+    "start_ann_fight_noDaiLi4":{
+        "recognition": "TemplateMatch",
+        "template": "UsePrts.png",
+        "action": "Click",
+        "next":[
+            "start_ann_fight_noDaiLi5"
+        ]
+    },
+    "start_ann_fight_noDaiLi5":{
+        "recognition": "TemplateMatch",
+        "template": "Start_Fight.png",
+        "action": "Click",
+        "next":[
+            "start_ann_fight_noDaiLi6"
+        ]
+    },
+    "start_ann_fight_noDaiLi6":{
+        "recognition":"TemplateMatch",
+        "template": "BattleStart.png",
+        "action":"Click",
+        "post_delay":900000,
+        "next":[
+            "start_ann_fight_DaiLi_finish"
+        ]
+    },
+    "test":{
+        "recognition":"DirectHit"
+    }
+
+
+
 }
