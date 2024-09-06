@@ -40,7 +40,11 @@
         },
         {
             "name":"test",
-            "entry":"test"
+            "entry":"start_game2_1"
+        },
+        {
+            "name":"开始",
+            "entry":"start_game2"
         }
         
     ]
